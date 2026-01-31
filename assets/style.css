@@ -5,17 +5,25 @@
 }
 
 body {
-    margin: 0 auto;
-    padding: 20px;
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
 }
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
 .nav-section {
     background-color: #ffffff;
     padding: 10px;
     display: flex;
     flex-direction: column;
-    max-width: 700px;
+    max-width: 500px;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
@@ -32,7 +40,6 @@ body {
 }
 
 .content-section {
-    max-width: 700px;
     margin: 20px auto;
     text-align: center;
     display: flex;
@@ -40,10 +47,21 @@ body {
     align-items: center;
 }
 
+.max-width {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
 .logos-grid {
     display: grid;
-    grid-template-columns: minmax(150px, 1fr) minmax(150px, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 20px;
+    justify-items: center; /* Center items in the grid */
+    align-items: center;
 }
 
 .logos-grid a {
@@ -57,6 +75,17 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease;
 }
+
+.logos-grid > a {
+    justify-self: center; /* Center single logo if only one is present */
+}
+
+@media (min-width: 300px) {
+    .logos-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for two logos */
+    }
+}
+
 footer {
     text-align: center;
     font-size: 12px;
